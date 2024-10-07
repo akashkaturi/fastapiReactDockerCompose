@@ -7,7 +7,7 @@ const ImageItem = ({ image, onDelete }) => {
 
     const handleDelete = async () => {
         try {
-            await axios.delete(`${apiUrl}:8001/images/${image.filename}`);
+            await axios.delete(`http://${apiUrl}:8001/images/${image.filename}`);
             onDelete(image.filename);
         } catch (error) {
             console.error("Error deleting image:", error);

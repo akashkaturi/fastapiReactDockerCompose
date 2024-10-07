@@ -9,7 +9,7 @@ const ImageList = () => {
 
     const fetchImages = async () => {
         try {
-            const response = await axios.get(`${apiUrl}:8001/images/`);
+            const response = await axios.get(`http://${apiUrl}:8001/images/`);
             setImages(response.data);
         } catch (error) {
             console.error("Error fetching images:", error);
