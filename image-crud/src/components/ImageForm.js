@@ -28,7 +28,6 @@ const ImageForm = ({ onImageUpload }) => {
                     'Content-Type': 'multipart/form-data',
                 },
                 onUploadProgress: (progressEvent) => {
-                    // Calculate and update the progress percentage
                     const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
                     setProgress(percentCompleted);
                 },
@@ -47,32 +46,32 @@ const ImageForm = ({ onImageUpload }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="max-w-md mx-auto p-4 bg-white rounded shadow-md">
-            <h2 className="text-lg font-semibold mb-4">Upload Image</h2>
+        <form onSubmit={handleSubmit} className="max-w-md mx-auto p-6 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg shadow-lg mt-6 text-white">
+            <h2 className="text-2xl font-bold mb-4 text-center">Upload Image</h2>
             <input 
                 type="file" 
                 onChange={handleFileChange} 
-                className="mb-2 border border-gray-300 rounded p-2 w-full" 
+                className="mb-4 border border-gray-300 rounded-lg p-2 w-full bg-white text-gray-700" 
                 required 
             />
             <button 
                 type="submit" 
                 disabled={uploading} 
-                className={`w-full p-2 text-white rounded ${
-                    uploading ? 'bg-gray-400' : 'bg-blue-600 hover:bg-blue-700'
+                className={`w-full p-2 rounded-lg transition duration-300 ${
+                    uploading ? 'bg-gray-400 cursor-not-allowed' : 'bg-gradient-to-r from-green-400 to-blue-500 hover:bg-gradient-to-l'
                 }`}
             >
                 {uploading ? 'Uploading...' : 'Upload Image'}
             </button>
             {uploading && (
-                <div className="mt-2">
+                <div className="mt-4">
                     <div className="h-2 bg-gray-200 rounded">
                         <div
-                            className={`h-full bg-green-500 transition-all duration-300`}
+                            className="h-full bg-green-500 transition-all duration-300"
                             style={{ width: `${progress}%` }}
                         />
                     </div>
-                    <p className="text-sm mt-1 text-gray-700">{uploadStatus} - {progress}%</p>
+                    <p className="text-sm mt-1 text-center">{uploadStatus} - {progress}%</p>
                 </div>
             )}
         </form>

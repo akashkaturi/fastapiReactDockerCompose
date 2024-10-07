@@ -5,7 +5,6 @@ import ImageItem from './ImageItem';
 const ImageList = () => {
     const [images, setImages] = useState([]);
     const apiUrl = process.env.REACT_APP_CUSTOM_DOMAIN;
-    console.log(apiUrl)
 
     const fetchImages = async () => {
         try {
@@ -13,9 +12,6 @@ const ImageList = () => {
             setImages(response.data);
         } catch (error) {
             console.error("Error fetching images:", error);
-            console.log(JSON.stringify(error))
-            console.log("hello")
-
         }
     };
 
@@ -27,22 +23,21 @@ const ImageList = () => {
         setImages(images.filter(image => image.filename !== filename));
     };
 
-    // Function to refresh image list
     const refreshImageList = () => {
         fetchImages();
     };
 
     return (
-        <div className="mt-4">
-            <h2 className="text-lg font-semibold mb-4">Uploaded Images</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="container mx-auto mt-8">
+            <h2 className="text-3xl font-bold mb-6 text-center">Uploaded Images</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 {images.map(image => (
                     <ImageItem key={image.filename} image={image} onDelete={handleImageDelete} />
                 ))}
             </div>
             <button 
                 onClick={refreshImageList} 
-                className="mt-4 p-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                className="mt-6 p-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-lg hover:bg-gradient-to-l transition duration-300"
             >
                 Refresh Image List
             </button>
