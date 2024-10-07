@@ -2,9 +2,12 @@ import React from 'react';
 import axios from 'axios';
 
 const ImageItem = ({ image, onDelete }) => {
+    const apiUrl = process.env.CUSTOM_DOMAIN;
+
+
     const handleDelete = async () => {
         try {
-            await axios.delete(`http://localhost:8001/images/${image.filename}`);
+            await axios.delete(`${apiUrl}/images/${image.filename}`);
             onDelete(image.filename);
         } catch (error) {
             console.error("Error deleting image:", error);

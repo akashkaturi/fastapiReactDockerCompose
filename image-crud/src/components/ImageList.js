@@ -4,10 +4,12 @@ import ImageItem from './ImageItem';
 
 const ImageList = () => {
     const [images, setImages] = useState([]);
+    const apiUrl = process.env.CUSTOM_DOMAIN;
+    console.log(apiUrl)
 
     const fetchImages = async () => {
         try {
-            const response = await axios.get('http://localhost:8001/images/');
+            const response = await axios.get(`${apiUrl}/images/`);
             setImages(response.data);
         } catch (error) {
             console.error("Error fetching images:", error);

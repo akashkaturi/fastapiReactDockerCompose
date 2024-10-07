@@ -20,9 +20,10 @@ const ImageForm = ({ onImageUpload }) => {
 
         const formData = new FormData();
         formData.append('file', file);
+        const apiUrl = process.env.CUSTOM_DOMAIN;
 
         try {
-            await axios.post('http://localhost:8001/upload/', formData, {
+            await axios.post(`${apiUrl}/upload/`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
