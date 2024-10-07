@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 const ImageItem = ({ image, onDelete }) => {
-    const apiUrl = process.env.CUSTOM_DOMAIN;
+    const apiUrl = process.env.REACT_APP_CUSTOM_DOMAIN;
 
 
     const handleDelete = async () => {

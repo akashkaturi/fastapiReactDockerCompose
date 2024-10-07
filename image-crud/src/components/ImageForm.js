@@ -20,7 +20,7 @@ const ImageForm = ({ onImageUpload }) => {
 
         const formData = new FormData();
         formData.append('file', file);
-        const apiUrl = process.env.CUSTOM_DOMAIN;
+        const apiUrl = process.env.REACT_APP_CUSTOM_DOMAIN;
 
         try {
             await axios.post(`${apiUrl}:8001/upload/`, formData, {

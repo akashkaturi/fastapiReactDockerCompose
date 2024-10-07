@@ -4,7 +4,7 @@ import ImageItem from './ImageItem';
 
 const ImageList = () => {
     const [images, setImages] = useState([]);
-    const apiUrl = process.env.CUSTOM_DOMAIN;
+    const apiUrl = process.env.REACT_APP_CUSTOM_DOMAIN;
     console.log(apiUrl)
 
     const fetchImages = async () => {
