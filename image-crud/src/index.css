@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif; /* or any preferred font */
+    background-color: #f0f0f0; /* Default light background */
+    transition: background-color 0.3s, color 0.3s;
+    background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+}
